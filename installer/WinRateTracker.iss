@@ -1,5 +1,5 @@
 #define MyAppName "LoL Win Rate Tracker"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "dimitris01n"
 #define MyAppExeName "WinRateTracker.exe"
 

@@ -8,7 +8,7 @@ Public Class WinrateTrackerForm
     ' ==== State ====
     Private state As New AppState()
     Private isDirty As Boolean = False
-    Private ReadOnly savePath As String = Path.Combine(Application.StartupPath, "appstate.json")
+    Private savePath As String
 
     Private Sub LoadState()
         Try
@@ -139,6 +139,14 @@ Public Class WinrateTrackerForm
 
     Private Sub WinrateTrackerForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "LoL Winrate Tracker"
+        Dim appFolder As String = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "LoLWinRateTracker"
+        )
+
+        Directory.CreateDirectory(appFolder)
+        savePath = Path.Combine(appFolder, "appstate.json")
+
         SetupChart()
         LoadState()
         ApplyActiveRadio()
